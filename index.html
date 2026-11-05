@@ -1,0 +1,972 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portofolio Mutiara Tunjung Laras, mahasiswa Informatika.">
+<title>Mutiara Tunjung Laras | Portfolio</title>
+
+<style>
+:root {
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --surface2: #edf3fa;
+  --text: #172b45;
+  --muted: #687b91;
+  --primary: #397bb7;
+  --border: #e1e9f2;
+  --shadow: 0 15px 40px rgba(28,57,88,.07);
+}
+
+body.dark {
+  --bg: #0c1726;
+  --surface: #142337;
+  --surface2: #1c3048;
+  --text: #edf4fc;
+  --muted: #a8b8ca;
+  --primary: #8bbce8;
+  --border: #293d55;
+  --shadow: 0 15px 40px rgba(0,0,0,.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  transition: .3s;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 84%;
+  max-width: 1150px;
+  margin: auto;
+}
+
+/* NAVBAR */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  position: relative;
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  transition: .2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--primary);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width .25s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.theme-btn {
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text);
+  padding: 9px 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  padding: 90px 0;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.small-heading,
+.section-label {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 5vw, 58px);
+  line-height: 1.15;
+  letter-spacing: -2px;
+  margin: 15px 0 20px;
+}
+
+.hero h1 span {
+  color: var(--primary);
+}
+
+.hero-description {
+  max-width: 570px;
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 21px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .25s;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  opacity: .9;
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: var(--surface);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.profile-frame {
+  width: 290px;
+  height: 350px;
+  margin: auto;
+  padding: 10px;
+  border-radius: 150px 150px 25px 25px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.profile-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 145px 145px 18px 18px;
+}
+
+/* GENERAL SECTION */
+
+section {
+  padding: 85px 0;
+  scroll-margin-top: 85px;
+}
+
+.section-title {
+  font-size: 32px;
+  margin: 7px 0 14px;
+  letter-spacing: -.8px;
+}
+
+.section-description {
+  max-width: 650px;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+/* ABOUT */
+
+.about-box {
+  padding: 35px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.about-box p {
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* EDUCATION */
+
+.education-section {
+  background: var(--surface2);
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.education-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  transition: .25s;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+}
+
+.education-year {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.education-card h3 {
+  font-size: 18px;
+  margin: 12px 0 5px;
+}
+
+.education-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* CERTIFICATES */
+
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.certificate-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  transition: .25s;
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+}
+
+.certificate-year {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.certificate-card h3 {
+  font-size: 18px;
+  margin: 12px 0;
+}
+
+.certificate-card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.certificate-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  background: var(--surface2);
+  color: var(--primary);
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* SKILLS */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 27px;
+  transition: .25s;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.skill-number {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.skill-card h3 {
+  font-size: 17px;
+  margin: 13px 0 8px;
+}
+
+.skill-card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* PROJECT */
+
+.project-card {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 35px;
+  padding: 35px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  align-items: center;
+}
+
+.project-visual {
+  min-height: 230px;
+  background: linear-gradient(140deg, #dceafa, #a9c9e8);
+  color: #244d73;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  padding: 20px;
+}
+
+.project-visual strong {
+  font-size: 30px;
+}
+
+.project-visual span {
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.project-info h3 {
+  font-size: 23px;
+  margin: 10px 0;
+}
+
+.project-info p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.tags span {
+  padding: 6px 11px;
+  background: var(--surface2);
+  color: var(--primary);
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* CONTACT */
+
+.contact-section {
+  background: var(--surface2);
+}
+
+.contact-box {
+  text-align: center;
+  padding: 55px 25px;
+  border-radius: 15px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.contact-box p {
+  color: var(--muted);
+  margin: 12px auto 20px;
+  max-width: 550px;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 25px 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+  .container {
+    width: 90%;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .profile-frame {
+    width: 235px;
+    height: 290px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 600px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px 0;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .education-grid,
+  .certificate-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 65px 0;
+  }
+
+  section {
+    padding: 65px 0;
+  }
+
+  .section-title {
+    font-size: 27px;
+  }
+
+  .about-box,
+  .project-card {
+    padding: 23px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a href="#beranda" class="logo">Mutiara.</a>
+
+    <nav class="nav-links">
+      <a href="#beranda">Beranda</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#pendidikan">Pendidikan</a>
+      <a href="#sertifikat">Sertifikat</a>
+      <a href="#kemampuan">Kemampuan</a>
+      <a href="#proyek">Proyek</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+
+    <button class="theme-btn" id="themeToggle" type="button">
+      🌙 Dark
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- BERANDA -->
+<section class="hero" id="beranda">
+  <div class="container hero-content">
+
+    <div>
+      <div class="small-heading">Personal Portfolio</div>
+
+      <h1>
+        Halo, saya<br>
+        <span>Mutiara Tunjung Laras.</span>
+      </h1>
+
+      <p class="hero-description">
+        Mahasiswa Program Studi Informatika,
+        Fakultas Sains dan Teknologi. Memiliki ketertarikan
+        pada teknologi, pengolahan data, serta pengembangan
+        aplikasi sederhana.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#proyek" class="btn btn-primary">
+          Jelajahi Proyek
+        </a>
+
+        <a href="#tentang" class="btn btn-outline">
+          Tentang Saya
+        </a>
+      </div>
+    </div>
+
+    <div class="profile-frame">
+      <img src="FOTO.jpg" alt="Foto profil Mutiara Tunjung Laras">
+    </div>
+
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section id="tentang">
+  <div class="container">
+
+    <div class="section-label">About Me</div>
+    <h2 class="section-title">Tentang Saya</h2>
+
+    <p class="section-description">
+      Mengenal latar belakang dan ketertarikan saya.
+    </p>
+
+    <div class="about-box">
+      <p>
+        Saya merupakan mahasiswa Program Studi Informatika
+        di Fakultas Sains dan Teknologi. Saya tertarik
+        mempelajari pemanfaatan teknologi untuk membantu
+        pekerjaan menjadi lebih terstruktur dan mudah digunakan.
+        Saya terus mengembangkan kemampuan melalui tugas
+        perkuliahan, pembelajaran mandiri, dan proyek yang
+        saya kerjakan.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PENDIDIKAN -->
+<section class="education-section" id="pendidikan">
+  <div class="container">
+
+    <div class="section-label">Education</div>
+    <h2 class="section-title">Riwayat Pendidikan</h2>
+
+    <p class="section-description">
+      Perjalanan pendidikan yang telah dan sedang saya tempuh.
+    </p>
+
+    <div class="education-grid">
+
+      <div class="education-card">
+        <div class="education-year">2026 – SEKARANG</div>
+        <h3>Universitas Muhammadiyah Sidoarjo</h3>
+        <p>Program Studi Informatika</p>
+        <p>Fakultas Sains dan Teknologi</p>
+      </div>
+
+      <div class="education-card">
+        <div class="education-year">2023 – 2026</div>
+        <h3>MAN 1 Pasuruan</h3>
+        <p>Pendidikan Menengah Atas</p>
+      </div>
+
+      <div class="education-card">
+        <div class="education-year">2020 – 2023</div>
+        <h3>SMP</h3>
+        <p>Nama sekolah dapat ditambahkan di sini.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERTIFIKAT -->
+<section id="sertifikat">
+  <div class="container">
+
+    <div class="section-label">Certification</div>
+    <h2 class="section-title">Sertifikat</h2>
+
+    <p class="section-description">
+      Dokumentasi program dan kompetensi yang telah saya ikuti.
+    </p>
+
+    <div class="certificate-grid">
+
+      <div class="certificate-card">
+        <div class="certificate-year">2026</div>
+
+        <h3>
+          Program Terapan Bidang Teknologi Informasi
+          dan Komunikasi (PRODISTIK)
+        </h3>
+
+        <p>
+          Program pendidikan dan pelatihan teknologi informasi
+          dan komunikasi yang diselenggarakan melalui kerja sama
+          MAN 1 Pasuruan dengan Institut Teknologi Sepuluh
+          Nopember (ITS).
+        </p>
+
+        <p>
+          <strong>IPK:</strong> 3,84<br>
+          <strong>Beban Studi:</strong> 25 SKS
+        </p>
+
+        <span class="certificate-tag">
+          PRODISTIK
+        </span>
+      </div>
+
+      <!-- Tambahkan sertifikat lain jika tersedia -->
+      <div class="certificate-card">
+        <div class="certificate-year">SERTIFIKAT LAINNYA</div>
+
+        <h3>Nama Sertifikat</h3>
+
+        <p>
+          Tambahkan nama program, penyelenggara,
+          dan keterangan sertifikat yang benar-benar dimiliki.
+        </p>
+
+        <span class="certificate-tag">
+          Kompetensi
+        </span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KEMAMPUAN -->
+<section class="skills-section" id="kemampuan">
+  <div class="container">
+
+    <div class="section-label">My Skills</div>
+    <h2 class="section-title">Kemampuan</h2>
+
+    <p class="section-description">
+      Beberapa bidang yang sedang saya pelajari dan kembangkan.
+    </p>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-number">01 / OFFICE</div>
+        <h3>Microsoft Excel</h3>
+        <p>
+          Menggunakan tabel, fungsi, dan rumus
+          untuk membantu proses pengolahan data.
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-number">02 / AUTOMATION</div>
+        <h3>Excel VBA</h3>
+        <p>
+          Menggunakan macro dan tombol untuk
+          menjalankan fungsi tertentu dalam aplikasi Excel.
+        </p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-number">03 / DATA</div>
+        <h3>Pengolahan Data</h3>
+        <p>
+          Menyusun, mengelompokkan, dan menyajikan
+          data dalam bentuk rekapitulasi.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROYEK -->
+<section id="proyek">
+  <div class="container">
+
+    <div class="section-label">Selected Work</div>
+    <h2 class="section-title">Proyek Pilihan</h2>
+
+    <p class="section-description">
+      Dokumentasi proyek yang pernah saya kembangkan.
+    </p>
+
+    <div class="project-card">
+
+      <div class="project-visual">
+        <strong>EmoJournal</strong>
+        <span>WEEKLY EMOTION REFLECTION</span>
+      </div>
+
+      <div class="project-info">
+
+        <div class="section-label">Microsoft Excel Project</div>
+
+        <h3>EmoJournal</h3>
+
+        <p>
+          Aplikasi evaluasi dan refleksi emosi mingguan siswa
+          berbasis Microsoft Excel. Proyek ini dikembangkan
+          untuk membantu pencatatan dan rekapitulasi emosi
+          siswa secara lebih terstruktur menggunakan tabel,
+          rumus, dan fitur VBA.
+        </p>
+
+        <div class="tags">
+          <span>Microsoft Excel</span>
+          <span>VBA</span>
+          <span>Rumus Excel</span>
+          <span>Pengolahan Data</span>
+        </div>
+
+        <p>
+          <strong>Tujuan:</strong>
+          Menyediakan media pencatatan emosi mingguan
+          yang praktis dan mudah digunakan.
+        </p>
+
+        <a class="btn btn-primary"
+           href="https://github.com/mutiarasiwi/mutiaralaras.github.io/blob/main/EMOJOURNAL%20MEDIA%20EVALUASI%20DAN%20REFLEKSI.xlsm"
+           target="_blank" rel="noopener noreferrer">
+          Lihat File Proyek ↗
+        </a>
+
+        <a class="btn btn-outline"
+           href="https://github.com/mutiarasiwi/mutiaralaras.github.io"
+           target="_blank" rel="noopener noreferrer">
+          GitHub Repository ↗
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section class="contact-section" id="kontak">
+  <div class="container">
+
+    <div class="contact-box">
+      <div class="section-label">Get In Touch</div>
+
+      <h2 class="section-title">Mari Terhubung</h2>
+
+      <p>
+        Terbuka untuk belajar, berkolaborasi,
+        dan mengembangkan pengalaman di bidang teknologi.
+      </p>
+
+      <a class="btn btn-primary"
+         href="https://github.com/mutiarasiwi"
+         target="_blank" rel="noopener noreferrer">
+        Kunjungi GitHub ↗
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 Mutiara Tunjung Laras. All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+
+/* DARK AND LIGHT MODE */
+
+const themeToggle = document.getElementById("themeToggle");
+
+const savedTheme = localStorage.getItem("portfolio-theme");
+
+if (savedTheme === "dark") {
+  document.body.classList.add("dark");
+}
+
+function updateThemeButton() {
+  const dark = document.body.classList.contains("dark");
+  themeToggle.textContent = dark ? "☀️ Light" : "🌙 Dark";
+}
+
+updateThemeButton();
+
+themeToggle.addEventListener("click", function() {
+  document.body.classList.toggle("dark");
+
+  const dark = document.body.classList.contains("dark");
+
+  localStorage.setItem(
+    "portfolio-theme",
+    dark ? "dark" : "light"
+  );
+
+  updateThemeButton();
+});
+
+
+/* ACTIVE NAVIGATION */
+
+const navLinks = document.querySelectorAll(".nav-links a");
+const pageSections = document.querySelectorAll("main section[id]");
+
+function setActiveLink(sectionId) {
+  navLinks.forEach(link => {
+    const isActive =
+      link.getAttribute("href") === "#" + sectionId;
+
+    link.classList.toggle("active", isActive);
+  });
+}
+
+setActiveLink("beranda");
+
+navLinks.forEach(link => {
+  link.addEventListener("click", function() {
+    const sectionId = this.getAttribute("href").substring(1);
+    setActiveLink(sectionId);
+  });
+});
+
+/* Garis bawah mengikuti bagian yang terlihat */
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      setActiveLink(entry.target.id);
+    }
+  });
+}, {
+  rootMargin: "-30% 0px -60% 0px"
+});
+
+pageSections.forEach(section => {
+  observer.observe(section);
+});
+
+</script>
+
+</body>
+</html>
